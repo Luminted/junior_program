@@ -9,8 +9,9 @@ module.exports = function (grunt) {
             },
             build: {
                 src: ['node_modules/jquery/dist/jquery.js',
-             'node_modules/bootstrap/dist/js/bootstrap.min.js',
-             'js/**/*.js'],
+                      'node_modules/angular/angular.min.js',
+                        'node_modules/bootstrap/dist/js/bootstrap.min.js',
+                        'js/**/*.js'],
                 dest: 'build/js/<%= pkg.name %>.min.js'
             }
         },
@@ -30,8 +31,8 @@ module.exports = function (grunt) {
             },
             target: {
                 files: {
-                    'build/css/<%= pkg.name %>.min.css': ['C:/Users/rozsenich_levente/Desktop/Junior_Program/HTML_beginner/node_modules/bootstrap/dist/css/bootstrap.min.css',
-                                           'C:/Users/rozsenich_levente/Desktop/Junior_Program/HTML_beginner/node_modules/bootstrap/dist/css/bootstrap-theme.min.css']
+                    'build/css/<%= pkg.name %>.min.css': ['node_modules/bootstrap/dist/css/bootstrap.min.css',
+                                                            'node_modules/bootstrap/dist/css/bootstrap-theme.min.css']
                 }
             }
         },

@@ -3,6 +3,8 @@
   "name": "html5-beginner",
   "version": "1.0.0",
   "dependencies": {
+    "angular": "^1.5.5",
+    "angular-route": "^1.5.8",
     "angularjs": "*",
     "bootstrap": "*",
     "grunt": "^1.0.1",
