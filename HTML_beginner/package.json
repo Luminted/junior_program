@@ -1,0 +1,11 @@
+{
+  "description": "Beginner HTML Project",
+  "name": "html5-beginner",
+  "version": "1.0.0",
+  "dependencies": {
+    "angularjs": "*",
+    "bootstrap": "*",
+    "grunt": "^1.0.1",
+    "jquery": "*"
+  }
+}
