@@ -5,7 +5,7 @@
         "address": "New York",
         "job": "programmer",
         "email": "Jefferey@gmail.hu",
-        "pass" : "Jeffrey"
+        "pass" : "Jeffrey",
         
     },{
         "name": "Joe",
@@ -13,34 +13,34 @@
         "address": "New York",
         "job": "programmer",
         "email": "Joe@gmail.hu",
-        "pass" : "Joe"
+        "pass" : "Joe",
     },{
         "name": "Jack",
         "age": 42,
         "address": "New York",
         "job": "programmer",
         "email": "Jack@gmail.hu",
-        "pass" : "Jack"
+        "pass" : "Jack",
     },{
         "name": "Ádám",
         "age": 42,
         "address": "New York",
         "job": "programmer",
         "email": "Ádám@gmail.hu",
-        "pass" : "Ádám"
+        "pass" : "Ádám",
     },{
         "name": "Zsuzsi",
         "age": 42,
         "address": "New York",
         "job": "programmer",
         "email": "Zsuzsi@gmail.hu",
-        "pass" : "Zsuzsi"
+        "pass" : "Zsuzsi",
     },{
         "name": "Józsi",
         "age": 42,
         "address": "New York",
         "job": "programmer",
         "email": "Józsi@gmail.hu",
-        "pass" : "Józsi"
+        "pass" : "Józsi",
     }
 ]
