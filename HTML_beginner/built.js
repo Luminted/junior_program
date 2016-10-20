@@ -1,26 +1,36 @@
 var webapp = angular.module("webapp", []);
-webapp.controller("bodyController", ['$scope', '$http', 'loginFactory'
-    , function ($scope, $http, loginFactory) {
+webapp.controller("bodyController", ['$scope', '$http', 'userFactory'
+    ,
+    function ($scope, $http, userFactory) {
         $scope.isLoggedIn = false;
         $scope.users = [];
         $scope.doLogin = function () {
-            console.log($scope.email + " " + $scope.password);
-            loginFactory.checkLogin($scope.loginData).then(function (loggedIn) {
+            if (!$scope.loginData) {
+                console.log("Please fill out the form1");
+                return;
+            }
+
+            if (!$scope.loginData.pass || !$scope.loginData.email) {
+                console.log("Please fill out the form2");
+                return;
+            }
+
+            userFactory.checkLogin($scope.loginData).then(function (loggedIn) {
                 $scope.isLoggedIn = loggedIn;
-            })
-        };
+            });
+        }
 }]);
-webapp.factory("loginFactory", ["$q", "$http", function ($q, $http) {
+webapp.factory("userFactory", ["$q", "$http", function ($q, $http) {
     return {
         checkLogin: function (loginData) {
             var deferred = $q.defer();
             
             this.getUsers().then(function (users) {
-                console.log(users);
-                console.log(loginData.email + " " + loginData.password);
                 var loggedIn = false;
                 for (var u in users) {
-                    if (u.email === loginData.email && u.pass === loginData.password) {
+                    //console.log("email " + u.email + " pass " + u.pass);
+                    if (users[u].email === loginData.email && users[u].pass === loginData.pass) {
+                        console.log("belépett");
                         loggedIn = true;
                     }
                 }

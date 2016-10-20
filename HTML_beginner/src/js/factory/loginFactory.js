@@ -1,14 +1,14 @@
-webapp.factory("loginFactory", ["$q", "$http", function ($q, $http) {
+webapp.factory("userFactory", ["$q", "$http", function ($q, $http) {
     return {
         checkLogin: function (loginData) {
             var deferred = $q.defer();
             
             this.getUsers().then(function (users) {
-                console.log(users);
-                console.log(loginData.email + " " + loginData.password);
                 var loggedIn = false;
                 for (var u in users) {
-                    if (u.email === loginData.email && u.pass === loginData.password) {
+                    //console.log("email " + u.email + " pass " + u.pass);
+                    if (users[u].email === loginData.email && users[u].pass === loginData.pass) {
+                        console.log("belépett");
                         loggedIn = true;
                     }
                 }
