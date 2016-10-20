@@ -2,8 +2,11 @@ var webapp = angular.module("webapp", []);
 webapp.controller("bodyController", ['$scope', '$http', 'userFactory'
     ,
     function ($scope, $http, userFactory) {
-        $scope.isLoggedIn = false;
+        $scope.isLoggedIn = true ;
+        
         $scope.users = [];
+        $scope.defaultContent = 'index';
+        
         $scope.doLogin = function () {
             if (!$scope.loginData) {
                 console.log("Please fill out the form1");
@@ -19,6 +22,26 @@ webapp.controller("bodyController", ['$scope', '$http', 'userFactory'
                 $scope.isLoggedIn = loggedIn;
             });
         }
+        
+        //Template loader
+        $scope.getTemplate = function(name){
+            return 'template/' + name + '.html';
+        }
+        
+        //Content loader
+        $scope.getContent = function(name){
+            console.log($scope.currentContent);
+            console.log('fur külső');
+            if(!name){
+                console.log('fut index');
+                $scope.currentContent = $scope.getTemplate('content/index');
+            }else{
+                console.log('fut');
+                $scope.currentContent = $scope.getTemplate('content/' + name);
+            }
+        }
+        
+        $scope.getContent();
 }]);
 webapp.factory("userFactory", ["$q", "$http", function ($q, $http) {
     return {

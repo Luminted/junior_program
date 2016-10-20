@@ -27,11 +27,11 @@
 </head>
 
 <body data-ng-controller="bodyController">
-    <div data-ng-include="'template/nav.html'"></div>
+    <div data-ng-include="getTemplate('nav')"></div>
 
-    <div class="container" data-ng-show="isLoggedIn" data-ng-include="'template/container.html'"></div>
+    <div class="container" data-ng-show="isLoggedIn" data-ng-include="getTemplate('container')"></div>
 
-    <div class="row" data-ng-show="!isLoggedIn" data-ng-include="'template/loginForm.html'"></div>
+    <div class="row" data-ng-show="!isLoggedIn" data-ng-include="getTemplate('loginForm')"></div>
 
 
     <footer>
