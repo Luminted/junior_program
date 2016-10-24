@@ -3,7 +3,9 @@
 var rules ={
     '1': 'I',
     '4': 'IV',
-    '5': 'V'
+    '5': 'V',
+    '9': 'IX',
+    '10' : 'X'
 }
 
 function roman(arabic){
@@ -15,13 +17,11 @@ function roman(arabic){
        return Number(n) <= arabic;
     });
 
-    //console.log(numbers);
-
     var currentRoman, currentArabic;
     currentArabic = numbers.pop();
     currentRoman = rules[currentArabic];
 
-    return roman(arabic - currentArabic) + currentRoman;
+    return currentRoman + roman(arabic - currentArabic);
 }
 
 module.exports = roman;
