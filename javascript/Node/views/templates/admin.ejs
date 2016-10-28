@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Admin</h1>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Number</th>
+        </tr>
+        <% for (var i = 0; i < guesses.length; i++){ %>
+        <tr>
+            <th><%= guesses[i].playerName %></th>
+            <th><%= guesses[i].number %></th>
+        </tr>
+        <% } %>
+    </table>
+</body>
+</html>

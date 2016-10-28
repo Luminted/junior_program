@@ -1,7 +1,13 @@
 'use strict';
 
+var save = require('./saveGame');
+
 var lastPlayer = 'Nobody';
 var guesses = [];
+
+save.loadEntities(function(err, entities){
+    guesses = entities;
+});
 
 function getLastPlayer() {
     return lastPlayer;
@@ -9,13 +15,15 @@ function getLastPlayer() {
 
 function submitNumber(playerName, number) {
     lastPlayer = playerName;
-    guesses.push({
+    var entity = {
         playerName: playerName,
         number: number
-    })
+    };
+    guesses.push(entity);
+    save.addEntity(entity);
 }
 
-function getBestPlayerGuess() {
+function getBestPlayer() {
     guesses.sort(function (a, b) {
         return a.number - b.number;
     });
@@ -28,13 +36,18 @@ function getBestPlayerGuess() {
         console.log(numberOfSameGuesses);
 
         if (numberOfSameGuesses === 1) {
-            return guesses[i];
+            return guesses[i].playerName;
         }
     }
+}
+
+function getAllGuesses(){
+    return guesses;
 }
 
 module.exports = {
     getLastPlayer: getLastPlayer,
     submitNumber: submitNumber,
-    getBestPlayerGuess: getBestPlayerGuess
+    getBestPlayer: getBestPlayer,
+    getAllGuesses: getAllGuesses
 }

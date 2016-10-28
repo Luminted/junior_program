@@ -6,27 +6,36 @@ $(document).ready(function () {
     var numberInput = $('#number');
     var playerName = $('#player');
     var lastPlayer = $('#lastPlayer');
+    var bestPlayer = $('#bestPlayer');
 
     button.on('click', function () {
         var url = '/play/' + playerName.val() + '/' + numberInput.val();
         $.ajax({
-            method: 'GET',
+            method: 'POST',
             url: url,
-            success: updateLastPlayer
+            success: updatePlayers
         });
     });
 
-    function updateLastPlayer() {
-        var url = 'player/last';
+    function updatePlayers() {
         $.ajax({
             method: 'GET',
-            url: url,
+            url: 'player/best',
             success: function (response) {
-                lastPlayer.html(response.last_player);
+                    bestPlayer.html(response.bestPlayer);
+            }
+        });
+        $.ajax({
+            method: 'GET',
+            url: 'player/last',
+            success: function (response) {
+                    lastPlayer.html(response.lastPlayer);
             }
         });
     }
-    setInterval(updateLastPlayer, 3000);
+
+    updatePlayers();
+    setInterval(updatePlayers, 3000);
 
 
 
