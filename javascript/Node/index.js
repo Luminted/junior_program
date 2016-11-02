@@ -2,39 +2,13 @@
 
 var game = require('./game');
 var app = require('./app');
+var fs = require('fs');
 
-app.get('/', function (req, res) {
-    res.render('templates/index', {
-        last_player: game.getLastPlayer()
-    });
+var dir = fs.readdirSync('./controllers'); 
+
+dir.forEach(function(fname){
+    var controller = require('./controllers/' + fname);
+    controller(app);
 });
-
-app.get('/admin', function(req, res){
-    res.render('templates/admin', {
-        guesses: game.getAllGuesses()
-    });
-});
-
-
-app.post('/play/:player/:number', function (req, res) {
-    game.submitNumber(req.params.player, req.params.number);
-    res.send({
-        status: 'ok'
-    });
-});
-
-app.get('/player/last', function (req, res) {
-    res.send({
-        lastPlayer: game.getLastPlayer(),
-        status: 'ok'
-    });
-});
-
-app.get('/player/best', function (req, res) {
-    res.send({
-        bestPlayer: game.getBestPlayer(),
-        status: 'ok'
-    })
-})
 
 app.listen(9001);

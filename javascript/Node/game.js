@@ -31,9 +31,7 @@ function getBestPlayer() {
         var currentNumber = guesses[i].number;
         var numberOfSameGuesses = guesses.filter(function (e) {
             return e.number === currentNumber;
-        }).length
-
-        console.log(numberOfSameGuesses);
+        }).length;
 
         if (numberOfSameGuesses === 1) {
             return guesses[i].playerName;
@@ -44,6 +42,12 @@ function getBestPlayer() {
 function getAllGuesses(){
     return guesses;
 }
+
+/*
+setInterval(function(){
+    console.log(lastPlayer);
+}, 1000);
+*/
 
 module.exports = {
     getLastPlayer: getLastPlayer,

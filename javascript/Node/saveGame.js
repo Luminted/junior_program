@@ -1,7 +1,8 @@
 'use strict';
 
+var config = require('./config');
 var fs = require('fs');
-var DB_FILE_NAME = 'db.json';
+var DB_FILE_NAME = config.dbFileName;
 
 function addEntity(entity){
     loadEntities(function(err, entities){
