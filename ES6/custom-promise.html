@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+        const url ='http://echo.jsontest.com/title/ipsum/content/blah';
+        const promise = new Promise((resolve, reject) => {
+            resolve();
+        });
+
+        promise
+            .then(data => {
+                console.log(data);
+            }).catch(err => {
+                console.error(err);
+            });
+
+    </script>
+</body>
+
+</html>

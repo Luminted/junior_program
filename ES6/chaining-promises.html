@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+
+    const posts = [
+        { title: 'I love JavaScript', author: 'Wes Bos', id: 1 },
+        { title: 'CSS!', author: 'Chris Coyier', id: 2 },
+        { title: 'Dev tools tricks', author: 'Addy Osmani', id: 3 },
+    ];
+
+    const authors = [
+        { name: 'Wes Bos', twitter: '@wesbos', bio: 'Canadian Developer' },
+        { name: 'Chris Coyier', twitter: '@chriscoyier', bio: 'CSS Tricks and CodePen' },
+        { name: 'Addy Osmani', twitter: '@addyosmani', bio: 'Googler' },
+    ];
+
+    function hydrateAuthor(post){
+        return new Promise((resolve, reject) => {
+            const authorsDetails = authors.find( author => author.name === post.author);
+            if(authorsDetails){
+                post.author = authorsDetails;
+                resolve(post);
+            }
+            else{
+                reject(Error('No Author exists of this name'));
+            }
+        })
+    }
+
+    function getPostById(id){
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                const post = posts.find(post => post.id === id);
+                if(post){
+                    resolve(post);
+                }
+                else{
+                    reject(Error('No post of this id exists'));
+                }
+            }, 3000);
+        });
+    }
+
+    getPostById(3)
+        .then(post => {
+            console.log(post);
+            return hydrateAuthor(post);
+        })
+        .then(post => console.log(post))
+        .catch(err => console.error(err));
+  
+    </script>
+</body>
+
+</html>

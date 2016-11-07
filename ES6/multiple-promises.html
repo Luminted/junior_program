@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+/** /
+     const weather = new Promise((resolve) => {
+        setTimeout(() => {
+            resolve({ temp: 29, conditions: 'Sunny with Clouds'});
+        }, 2000);
+    });
+
+   const tweets = new Promise((resolve) => {
+     setTimeout(() => {
+       resolve(['I like cake', 'BBQ is good too!']);
+     }, 500);
+   });
+
+   Promise.all([weather, tweets])
+        .then(responses => {
+            console.log(...responses);
+        });
+/* */
+
+
+  const postsPromise = fetch('http://wesbos.com/wp-json/wp/v2/posts');
+  const streetCarsPromise = fetch('http://data.ratp.fr/api/datasets/1.0/search/?q=paris');
+  //const loremIpsumPromise = $.get('http://echo.jsontest.com/title/ipsum/content/blah');
+
+  Promise.all([postsPromise, streetCarsPromise])
+    .then(responses =>{
+        return Promise.all(responses.map(res => res.json()))
+    })
+    .then(responses => {
+        console.log(responses);
+    });
+    
+
+    </script>
+</body>
+</html>
