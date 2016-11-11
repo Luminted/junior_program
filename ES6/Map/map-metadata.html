@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+
+<body>
+	<button>Snakes 🐍</button>
+	<button>Cry 😂</button>
+	<button>Ice Cream 🍦</button>
+	<button>Flamin' 🔥</button>
+	<button>Dancer 💃</button>
+
+    <script>
+        const metaData = new Map();
+        const  buttons = document.querySelectorAll('button');
+
+        buttons.forEach(button => {
+            metaData.set(button, 0);
+            button.addEventListener('click', function(){
+                const val = metaData.get(this);
+                console.log(metaData);
+                metaData.set(this, val+1)
+            });
+        });
+    </script>
+</body>
+
+</html>

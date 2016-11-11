@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Dog(name, breed) {
+            this.name = name;
+            this.breed = breed;
+        }
+
+        Dog.prototype.bark = function(){
+            console.log('Wuff!');
+        }
+
+        const snickers = new Dog('Snickers', 'whatever');
+        snickers.bark();
+    </script>
+</body>
+</html>

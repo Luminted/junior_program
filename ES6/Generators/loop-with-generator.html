@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const inventors = [
+  { first: 'Albert', last: 'Einstein', year: 1879 },
+  { first: 'Isaac', last: 'Newton', year: 1643 },
+  { first: 'Galileo', last: 'Galilei', year: 1564 },
+  { first: 'Marie', last: 'Curie', year: 1867 },
+  { first: 'Johannes', last: 'Kepler', year: 1571 },
+  { first: 'Nicolaus', last: 'Copernicus', year: 1473 },
+  { first: 'Max', last: 'Planck', year: 1858 },
+];
+
+function* looper(arr){
+    for(const item of arr){
+        yield item;
+    }
+}
+
+const loop = looper(inventors);
+let y = loop.next();
+
+while(!y.done){
+    y = loop.next();
+}
+
+    </script>
+</body>
+</html>
